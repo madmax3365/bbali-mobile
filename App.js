@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import RootStack from './RootStack';
-import SplashScreen from 'react-native-splash-screen';
+import Splash from './src/Components/Splash';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			loaded: false
+		};
+	}
 	componentDidMount() {
-		SplashScreen.hide();
+		setTimeout(() => this.setState({ loaded: true }), 3000);
 	}
 	render() {
-		return <RootStack />;
+		return this.state.loaded ? (
+			<Provider store={store}>
+				<RootStack />
+			</Provider>
+		) : (
+			<Splash />
+		);
 	}
 }

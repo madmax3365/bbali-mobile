@@ -48,13 +48,15 @@ const styles = StyleSheet.create({
 	},
 	bg: {
 		position: 'absolute',
+
 		bottom: 0,
 		flex: 1,
 		flexDirection: 'row',
 		alignItems: 'stretch'
 	},
 	img: {
-		flex: 1
+		flex: 1,
+		height: deviceHeight * 0.164
 	},
 	scooter: {
 		position: 'absolute',

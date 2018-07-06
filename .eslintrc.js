@@ -19,6 +19,7 @@ module.exports = {
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
-		'react/display-name': [0]
+		'react/display-name': [0],
+		'react/prop-types': ['error', { ignore: ['navigation'] }]
 	}
 };

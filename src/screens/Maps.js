@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, BackHandler } from 'react-native';
 import MapView from 'react-native-maps';
 import styles from '../ScreenStyles/MapsStyle';
 
@@ -16,7 +16,21 @@ export default class Maps extends Component {
 			}
 		};
 	}
+	static navigationOptions = ({ navigation }) => {
+		return { headerRight: 'Welcome,' };
+	};
 
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+	}
+
+	handleBackPress = () => {
+		BackHandler.exitApp(); // works best when the goBack is async
+		return true;
+	};
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+	}
 	onMapLayout = () => {
 		this.setState({ isMapReady: true });
 	};

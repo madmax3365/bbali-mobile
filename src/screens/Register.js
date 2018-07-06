@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../ScreenStyles/RegisterStyles';
 import SubmitButton from '../Components/SubmitButton';
+import Toast from '../Components/Toast';
 
 export default class Register extends Component {
 	constructor(props) {
@@ -12,40 +13,56 @@ export default class Register extends Component {
 			password2: '',
 			phoneNumber: '',
 			error: '',
+			agreed: false,
 			token: ''
 		};
 	}
+	clearStateAndRoute = screen => {
+		this.setState({
+			email: '',
+			password: '',
+			password2: '',
+			phoneNumber: '',
+			error: '',
+			agreed: false,
+			token: ''
+		});
+		this.props.navigation.navigate(screen);
+	};
 	handlePress = e => {
 		e.preventDefault();
-
-		fetch('http://api.bbali.io/authorization/signup', {
-			method: 'post',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				email: this.state.email,
-				phoneNumber: this.state.phoneNumber,
-				password: this.state.password
+		if (!this.state.agreed) {
+			this.setState({ error: 'You must agree with our terms & conditions' });
+		} else if (this.state.password !== this.state.password2) {
+			this.setState({ error: 'Password does not match the confirm password' });
+		} else {
+			fetch('http://api.bbali.io/authorization/signup', {
+				method: 'post',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: this.state.email,
+					phoneNumber: this.state.phoneNumber,
+					password: this.state.password
+				})
 			})
-		})
-			.then(res => res.json())
-			.then(data => {
-				if (data.error) {
-					this.setState({ error: data.data.message });
-				} else {
-					this.setState({ token: data.data.token });
-				}
-			})
-			.catch(err => {
-				console.log(err.response);
-			});
+				.then(res => res.json())
+				.then(data => {
+					if (data.error) {
+						this.setState({ error: data.data.message });
+					} else {
+						this.clearStateAndRoute('Map');
+					}
+				});
+		}
 	};
 
 	render() {
 		return (
 			<View style={styles.container}>
+				{this.state.error !== '' && <Toast message={this.state.error} />}
 				<View style={styles.heading}>
 					<Text style={styles.title}>Sign Up</Text>
 				</View>
@@ -54,7 +71,7 @@ export default class Register extends Component {
 						<Image
 							source={require('../assets/illustration.png')}
 							style={styles.img}
-							resizeMode="contain"
+							resizeMode="stretch"
 						/>
 					</View>
 					<Text style={styles.nameTitle}>Name</Text>
@@ -102,7 +119,20 @@ export default class Register extends Component {
 						secureTextEntry={true}
 						underlineColorAndroid="transparent"
 					/>
-					<TouchableOpacity style={styles.agreement}>
+					<TouchableOpacity
+						style={styles.agreement}
+						onPress={() => this.setState({ agreed: !this.state.agreed })}>
+						{this.state.agreed ? (
+							<Image
+								source={require('../assets/marked.png')}
+								style={styles.check}
+							/>
+						) : (
+							<Image
+								source={require('../assets/unmarked.png')}
+								style={styles.check}
+							/>
+						)}
 						<Text style={styles.agreementText}>
 							I agree with terms & conditions
 						</Text>
@@ -112,14 +142,14 @@ export default class Register extends Component {
 						position={styles.login}
 						onPress={this.handlePress}
 					/>
-
-					<Text style={styles.regText}>Already have a account?</Text>
-					<TouchableOpacity
-						style={styles.register}
-						onPress={() => this.props.navigation.navigate('Login')}>
-						<Text style={styles.registerText}>Log In</Text>
-					</TouchableOpacity>
-					<Text style={styles.invalid}>{this.state.error}</Text>
+					<View style={styles.register}>
+						<Text style={styles.regText}>Already have a account?</Text>
+						<TouchableOpacity
+							style={styles.cont}
+							onPress={() => this.clearStateAndRoute('Login')}>
+							<Text style={styles.registerText}>Log In</Text>
+						</TouchableOpacity>
+					</View>
 				</View>
 			</View>
 		);

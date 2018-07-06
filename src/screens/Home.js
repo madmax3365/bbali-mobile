@@ -13,11 +13,13 @@ export default class Home extends Component {
 					<Text style={styles.desc}>A geek's #1 transport</Text>
 				</View>
 				<View style={styles.body}>
-					<Image
-						source={require('../assets/illustration.png')}
-						style={styles.bg}
-						resizeMod="cover"
-					/>
+					<View style={styles.bg}>
+						<Image
+							source={require('../assets/illustration.png')}
+							style={styles.img}
+							resizeMode="stretch"
+						/>
+					</View>
 					<SubmitButton
 						title="GET A SCOOTER NOW"
 						position={styles.scooter}

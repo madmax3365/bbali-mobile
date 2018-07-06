@@ -92,15 +92,7 @@ const styles = StyleSheet.create({
 		color: '#1b1b1b',
 		fontFamily: 'Poppins - Semi Bold'
 	},
-	password: {
-		width: deviceWidth * 0.66867,
-		position: 'absolute',
-		top: deviceHeight * 0.14656,
-		left: deviceWidth * 0.080645,
-		borderBottomWidth: 1,
-		paddingBottom: 0,
-		borderBottomColor: '#e5e5e5'
-	},
+
 	forgot: {
 		position: 'absolute',
 		top: deviceHeight * 0.2,
