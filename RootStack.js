@@ -5,9 +5,8 @@ import Login from './src/screens/Login';
 import Register from './src/screens/Register';
 import Forgot from './src/screens/Forgot';
 import Home from './src/screens/Home';
-import Maps from './src/screens/Maps';
 import Reset from './src/screens/Reset';
-import Header from './src/Components/Header';
+import DrawerNavigation from './DrawerNavigation';
 
 const transitionConfig = () => {
 	return {
@@ -84,10 +83,9 @@ const RootStack = createStackNavigator(
 			}
 		},
 		Map: {
-			screen: Maps,
+			screen: DrawerNavigation,
 			navigationOptions: {
-				disableBack: true,
-				header: <Header />
+				header: null
 			}
 		},
 		Home: {
@@ -98,7 +96,7 @@ const RootStack = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'Home',
+		initialRouteName: 'Map',
 		transitionConfig
 	}
 );
