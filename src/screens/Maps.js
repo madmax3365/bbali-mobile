@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, BackHandler } from 'react-native';
+import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
 import styles from '../ScreenStyles/MapsStyle';
 
-export default class Maps extends Component {
+class Maps extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -79,6 +80,12 @@ export default class Maps extends Component {
 		];
 		return (
 			<View style={styles.container}>
+				{this.props.nav.drawerOpened && (
+					<Image
+						source={require('../assets/cross.png')}
+						style={styles.closeButton}
+					/>
+				)}
 				<MapView
 					style={styles.map}
 					provider="google"
@@ -140,3 +147,8 @@ export default class Maps extends Component {
 		);
 	}
 }
+const mapStateToProps = state => ({
+	nav: state.nav
+});
+
+export default connect(mapStateToProps)(Maps);

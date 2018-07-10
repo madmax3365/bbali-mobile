@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { REGISTER_USER, GET_ERRORS, LOGIN_USER } from './types';
-import { NavigationActions } from 'react-navigation';
 // Register User
 export const registerUser = userData => dispatch => {
 	axios
@@ -28,7 +27,6 @@ export const loginUser = userData => dispatch => {
 	axios
 		.post('http://api.bbali.io/authorization/login', userData)
 		.then(res => {
-			dispatch(NavigationActions.navigate({ routeName: 'Route' }));
 			return {
 				type: LOGIN_USER,
 				payload: {

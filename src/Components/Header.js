@@ -7,21 +7,21 @@ import {
 	Dimensions,
 	StyleSheet
 } from 'react-native';
+import { connect } from 'react-redux';
+import { toggleDrawer } from '../../Redux/actions/navActions';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
-export default class Header extends Component {
+class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			drawerOpen: false
+			drawerOpen: this.props.nav.drawerOpen
 		};
 	}
+
 	toggleMenu = () => {
-		this.state.drawerOpen
-			? this.props.navigation.closeDrawer()
-			: this.props.navigation.openDrawer();
-		this.setState({ drawerOpen: !this.state.drawerOpen });
+		this.props.navigation.openDrawer();
 	};
 	render() {
 		return (
@@ -33,7 +33,7 @@ export default class Header extends Component {
 					<Text style={styles.profileText}>Welcome, John</Text>
 					<Image
 						resizeMode="stretch"
-						source={require('../assets/place_holder.png')}
+						source={require('../assets/profile_placeholder.png')}
 						style={styles.profilePic}
 					/>
 				</View>
@@ -75,3 +75,12 @@ const styles = StyleSheet.create({
 		fontWeight: '500'
 	}
 });
+
+const mapStateToProps = state => ({
+	nav: state.nav
+});
+
+export default connect(
+	mapStateToProps,
+	{ toggleDrawer }
+)(Header);

@@ -73,6 +73,12 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: '500',
 		marginLeft: deviceWidth * 0.023349
+	},
+	closeButton: {
+		position: 'absolute',
+		zIndex: 10,
+		right: deviceWidth * 0.1256,
+		top: 0
 	}
 });
 export default styles;
