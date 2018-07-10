@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     width: deviceWidth
   },
   map: {
-    height: deviceHeight * 0.83,
+    height: deviceHeight * 0.93,
     width: deviceWidth
   },
   calloutCont: {
@@ -31,54 +31,39 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     top: deviceHeight * 0.00121
   },
-
-  buttons: {
+  tytle: {
     position: "absolute",
-    flex: 1,
-    bottom: 0,
-    flexDirection: "row",
-    height: deviceHeight * 0.105,
-    width: deviceWidth
+    top: deviceHeight * 0.0357,
+    left: deviceWidth * 0.081,
+    fontSize: 16
   },
-  deliver: {
+  popup: {
+    flex: -1,
+    alignItems: "center",
+    backgroundColor: "#fff",
+    position: "absolute",
+    height: deviceHeight * 0.256,
+    width: deviceWidth * 0.8711,
+    bottom: deviceHeight * 0.0448,
+    alignSelf: "center"
+  },
+  location: {
     flex: 1,
-    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    width: deviceWidth * 0.5,
-    backgroundColor: "#13db97"
-  },
-  icon: {
-    width: deviceWidth * 0.04669887,
-    height: deviceHeight * 0.035326
-  },
-  pick: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    width: deviceWidth * 0.5,
-    backgroundColor: "#313a6d"
-  },
-  deliverText: {
-    color: "#fff",
-    fontFamily: "Poppins",
-    fontSize: 18,
-    fontWeight: "500",
-    marginLeft: deviceWidth * 0.023349
-  },
-  pickText: {
-    color: "#fff",
-    fontFamily: "Poppins",
-    fontSize: 18,
-    fontWeight: "500",
-    marginLeft: deviceWidth * 0.023349
-  },
-  closeButton: {
     position: "absolute",
-    zIndex: 10,
-    right: deviceWidth * 0.1256,
-    top: 0
+    height: deviceHeight * 0.0643,
+    width: deviceWidth * 0.7129,
+    top: deviceHeight * 0.0824,
+    backgroundColor: "rgba(19, 219, 151, 0.1)",
+    borderRadius: 5
+  },
+  locationText: {
+    fontSize: 12
+  },
+  button: {
+    position: "absolute",
+    bottom: deviceHeight * 0.022
   }
 });
 export default styles;
