@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Dimensions, StyleSheet } from 'react-native';
+import { View, Text, Image, Dimensions, StyleSheet } from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -52,10 +52,20 @@ const styles = StyleSheet.create({
 		fontFamily: 'Poppins',
 		fontSize: 12
 	},
-	amount: {},
+	amount: {
+		flex: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginTop: deviceHeight * 0.00226
+	},
 	amountText: {
 		color: '#13db97',
 		fontSize: 16
+	},
+	icon: {
+		width: deviceWidth * 0.04267311,
+		height: deviceWidth * 0.04267311,
+		marginRight: deviceWidth * 0.01529
 	}
 });
 
@@ -71,6 +81,10 @@ export default props => {
 			<View style={styles.right}>
 				<Text style={styles.total}>Total Amount</Text>
 				<View style={styles.amount}>
+					<Image
+						source={require('../assets/currency.png')}
+						style={styles.icon}
+					/>
 					<Text style={styles.amountText}>12450</Text>
 				</View>
 			</View>

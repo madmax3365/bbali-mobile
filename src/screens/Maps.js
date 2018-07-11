@@ -128,14 +128,20 @@ class Maps extends Component {
 					)}
 				</MapView>
 				<View style={styles.buttons}>
-					<TouchableOpacity style={styles.deliver} activeOpacity={0.95}>
+					<TouchableOpacity
+						style={styles.deliver}
+						activeOpacity={0.95}
+						onPress={() => this.props.navigation.navigate('Address')}>
 						<Image
 							source={require('../assets/delivery.png')}
 							style={styles.icon}
 						/>
 						<Text style={styles.deliverText}>Deliver to me</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.pick} activeOpacity={0.95}>
+					<TouchableOpacity
+						style={styles.pick}
+						activeOpacity={0.95}
+						onPress={() => this.props.navigation.navigate('Rent')}>
 						<Image
 							source={require('../assets/pickup.png')}
 							style={styles.icon}

@@ -36,26 +36,27 @@ export default class Register extends Component {
 		} else if (this.state.password !== this.state.password2) {
 			this.setState({ error: 'Password does not match the confirm password' });
 		} else {
-			fetch('http://api.bbali.io/authorization/signup', {
-				method: 'post',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					email: this.state.email,
-					phoneNumber: this.state.phoneNumber,
-					password: this.state.password
-				})
-			})
-				.then(res => res.json())
-				.then(data => {
-					if (data.error) {
-						this.setState({ error: data.data.message });
-					} else {
-						this.clearStateAndRoute('Map');
-					}
-				});
+			this.clearStateAndRoute('Map');
+			// fetch('http://api.bbali.io/authorization/signup', {
+			// 	method: 'post',
+			// 	headers: {
+			// 		Accept: 'application/json',
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	body: JSON.stringify({
+			// 		email: this.state.email,
+			// 		phoneNumber: this.state.phoneNumber,
+			// 		password: this.state.password
+			// 	})
+			// })
+			// 	.then(res => res.json())
+			// 	.then(data => {
+			// 		if (data.error) {
+			// 			this.setState({ error: data.data.message });
+			// 		} else {
+			// 			this.clearStateAndRoute('Map');
+			// 		}
+			// 	});
 		}
 	};
 

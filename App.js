@@ -8,7 +8,7 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			loaded: true
+			loaded: false
 		};
 	}
 	componentDidMount() {

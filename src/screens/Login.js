@@ -32,7 +32,8 @@ class Login extends Component {
 			email: this.state.email,
 			password: this.state.password
 		};
-		this.props.loginUser(userData);
+		this.props.navigation.navigate('Map');
+		// this.props.loginUser(userData);
 	};
 
 	static getDerivedStateFromProps(props, state) {

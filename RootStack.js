@@ -96,7 +96,7 @@ const RootStack = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'Map',
+		initialRouteName: 'Home',
 		transitionConfig
 	}
 );

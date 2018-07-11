@@ -23,26 +23,26 @@ export default class Login extends Component {
 	};
 	handlePress = e => {
 		e.preventDefault();
-
-		fetch('http://api.bbali.io/authorization/forgotten', {
-			method: 'post',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				email: this.state.email,
-				password: this.state.password
-			})
-		})
-			.then(res => res.json())
-			.then(data => {
-				if (data.error) {
-					this.setState({ error: data.data.message });
-				} else {
-					this.clearStateAndRoute('Reset');
-				}
-			});
+		this.clearStateAndRoute('Reset');
+		// fetch('http://api.bbali.io/authorization/forgotten', {
+		// 	method: 'post',
+		// 	headers: {
+		// 		Accept: 'application/json',
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: JSON.stringify({
+		// 		email: this.state.email,
+		// 		password: this.state.password
+		// 	})
+		// })
+		// 	.then(res => res.json())
+		// 	.then(data => {
+		// 		if (data.error) {
+		// 			this.setState({ error: data.data.message });
+		// 		} else {
+		// 			this.clearStateAndRoute('Reset');
+		// 		}
+		// 	});
 	};
 	render() {
 		return (
