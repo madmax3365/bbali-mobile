@@ -13,8 +13,8 @@ class Maps extends Component {
 			region: {
 				latitude: 1.317605,
 				longitude: 103.852776,
-				latitudeDelta: 0.02,
-				longitudeDelta: 0.02
+				latitudeDelta: 0.002,
+				longitudeDelta: 0.002
 			}
 		};
 	}
@@ -24,13 +24,22 @@ class Maps extends Component {
 	}
 
 	handleBackPress = () => {
-		BackHandler.exitApp();
 		return true;
 	};
 	componentDidMount() {
 		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
 	}
 	onMapLayout = () => {
+		navigator.geolocation.getCurrentPosition(location =>
+			this.setState({
+				region: {
+					latitude: location.coords.latitude,
+					longitude: location.coords.longitude,
+					latitudeDelta: 0.002,
+					longitudeDelta: 0.002
+				}
+			})
+		);
 		this.setState({ isMapReady: true });
 	};
 
@@ -90,7 +99,6 @@ class Maps extends Component {
 					style={styles.map}
 					provider="google"
 					customMapStyle={mapStyle}
-					minZoomLevel={17}
 					calloutOffset={{ x: -8, y: 28 }}
 					calloutAnchor={{ x: 4, y: 5 }}
 					region={this.state.region}
@@ -120,9 +128,32 @@ class Maps extends Component {
 						<MapView.Marker
 							ref={component => (this._scooterOnMap = component)}
 							image={require('../assets/scooter_indicator.png')}
+							onPress={() => this.props.navigation.navigate('Rent')}
 							coordinate={{
-								latitude: 1.317508,
-								longitude: 103.853775
+								latitude: this.state.region.latitude + 0.000245,
+								longitude: this.state.region.longitude + 0.000245
+							}}
+						/>
+					)}
+					{this.state.isMapReady && (
+						<MapView.Marker
+							ref={component => (this._scooterOnMap = component)}
+							image={require('../assets/scooter_indicator.png')}
+							onPress={() => this.props.navigation.navigate('Rent')}
+							coordinate={{
+								latitude: this.state.region.latitude - 0.000245,
+								longitude: this.state.region.longitude - 0.000245
+							}}
+						/>
+					)}
+					{this.state.isMapReady && (
+						<MapView.Marker
+							ref={component => (this._scooterOnMap = component)}
+							image={require('../assets/scooter_indicator.png')}
+							onPress={() => this.props.navigation.navigate('Rent')}
+							coordinate={{
+								latitude: this.state.region.latitude + 0.000445,
+								longitude: this.state.region.longitude - 0.000345
 							}}
 						/>
 					)}

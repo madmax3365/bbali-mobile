@@ -47,6 +47,14 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		width: deviceWidth * 0.8735,
 		bottom: deviceHeight * 0.1811
+	},
+	modal: {
+		position: 'absolute',
+		bottom: 20,
+		fontSize: 22,
+		alignSelf: 'center',
+		color: '#000',
+		fontWeight: 'bold'
 	}
 });
 export default styles;

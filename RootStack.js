@@ -7,6 +7,7 @@ import Forgot from './src/screens/Forgot';
 import Home from './src/screens/Home';
 import Reset from './src/screens/Reset';
 import DrawerNavigation from './DrawerNavigation';
+import Language from './src/screens/Language';
 
 const transitionConfig = () => {
 	return {
@@ -93,10 +94,16 @@ const RootStack = createStackNavigator(
 			navigationOptions: {
 				header: null
 			}
+		},
+		Language: {
+			screen: Language,
+			navigationOptions: {
+				header: null
+			}
 		}
 	},
 	{
-		initialRouteName: 'Home',
+		initialRouteName: 'Language',
 		transitionConfig
 	}
 );

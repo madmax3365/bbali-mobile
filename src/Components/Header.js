@@ -26,17 +26,24 @@ class Header extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.menu} onPress={this.toggleMenu}>
-					<Image source={require('../assets/menu.png')} resizeMode="contain" />
+				<TouchableOpacity style={styles.menuWrap} onPress={this.toggleMenu}>
+					<View style={styles.menu}>
+						<Image
+							source={require('../assets/menu.png')}
+							resizeMode="contain"
+						/>
+					</View>
 				</TouchableOpacity>
-				<View style={styles.profile}>
+				<TouchableOpacity
+					style={styles.profile}
+					onPress={() => this.props.navigation.navigate('UserSettings')}>
 					<Text style={styles.profileText}>Welcome, John</Text>
 					<Image
 						resizeMode="stretch"
 						source={require('../assets/profile_placeholder.png')}
 						style={styles.profilePic}
 					/>
-				</View>
+				</TouchableOpacity>
 			</View>
 		);
 	}
@@ -54,7 +61,13 @@ const styles = StyleSheet.create({
 	},
 	menu: {
 		flex: 1,
-		marginLeft: deviceWidth * 0.07568
+		marginLeft: deviceWidth * 0.07568,
+		marginTop: deviceHeight * 0.025
+	},
+	menuWrap: {
+		flex: 1,
+		justifyContent: 'center',
+		width: deviceWidth * 0.09159
 	},
 	profile: {
 		position: 'absolute',

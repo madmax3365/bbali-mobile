@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, BackHandler } from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/RentStyles';
 import RentItem from '../Components/RentItem';
@@ -36,6 +36,17 @@ export default class Rent extends Component {
 			activeName: 'Daily'
 		};
 	}
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+	}
+
+	handleBackPress = () => {
+		this.props.navigation.goBack();
+		return true;
+	};
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+	}
 	render() {
 		return (
 			<View style={styles.container}>
@@ -56,7 +67,7 @@ export default class Rent extends Component {
 				<SubmitButton
 					title="NEXT"
 					position={styles.button}
-					onPress={() => this.props.navigation.navigate('QR')}
+					onPress={() => this.props.navigation.navigate('Booking')}
 				/>
 			</View>
 		);

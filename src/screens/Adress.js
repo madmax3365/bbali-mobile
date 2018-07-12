@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	Image,
+	BackHandler
+} from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/AdressStyles';
 
@@ -10,6 +17,17 @@ export default class Adress extends Component {
 			address:
 				'Mr. Gildong Hong, Bldg. 102 Unit 304, Sajik- ro-3-gil 23, Jongno-gu, Seoul 30174 (South Korea)'
 		};
+	}
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+	}
+
+	handleBackPress = () => {
+		this.props.navigation.goBack();
+		return true;
+	};
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
 	}
 	render() {
 		return (

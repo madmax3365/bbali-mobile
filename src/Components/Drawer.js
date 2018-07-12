@@ -119,6 +119,7 @@ class Drawer extends Component {
 								}
 								active={this.state.routeName === 'Feedback'}
 								text="Feedback"
+								doRoute={() => this.doRoute('Feedback')}
 							/>
 						</View>
 						<View style={styles.itemWrapper}>
