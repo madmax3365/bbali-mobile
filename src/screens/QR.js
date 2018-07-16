@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { View, Image, Text, BackHandler, Modal } from 'react-native';
+import { View, Text, BackHandler, Modal } from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/QRStyles';
 import Finished from './Finished';
+import QRCodeScanner from 'react-native-qrcode-scanner';
+import Toast from '../Components/Toast';
 
 export default class QR extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			error: '',
+			code: '0000',
 			modal: false
 		};
 	}
@@ -22,19 +26,35 @@ export default class QR extends Component {
 	componentDidMount() {
 		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
 	}
+	checkQr = () => {
+		if (this.state.code !== '') {
+			this.props.navigation.navigate('AddPayment');
+		} else {
+			this.setState({ error: 'You must scan QR code first!' });
+		}
+	};
+	onSuccess = e => {
+		try {
+			this.setState({ code: e.target });
+		} catch (err) {
+			console.log(err);
+		}
+	};
 	render() {
 		return (
 			<View style={styles.wrapper}>
+				{this.state.error !== '' && <Toast message={this.state.error} />}
 				<Text style={styles.title}>Scan QR code</Text>
 				<View style={styles.container}>
+					<QRCodeScanner onRead={this.onSuccess} />
 					<View style={styles.cont}>
-						<Text style={styles.text}>6 6 7 6 9 0</Text>
+						<Text style={styles.text}>{this.state.code}</Text>
 					</View>
 				</View>
 				<SubmitButton
 					title="SUBMIT"
 					position={styles.button}
-					onPress={() => this.props.navigation.navigate('AddPayment')}
+					onPress={this.checkQr}
 				/>
 				<Modal
 					animationType="slide"

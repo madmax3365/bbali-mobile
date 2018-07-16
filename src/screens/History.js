@@ -2,43 +2,25 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../ScreenStyles/HistoryStyles';
 import HistoryCart from '../Components/HistoryCart';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class History extends Component {
+class History extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<FlatList
-					data={[
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'a' },
-						{ key: 'b' }
-					]}
-					renderItem={({ item }) => <HistoryCart />}
+					data={this.props.screen.userHistory}
+					renderItem={({ item }) => <HistoryCart key={item.id} />}
 				/>
 			</View>
 		);
 	}
 }
+const mapStateToProps = state => ({
+	screen: state.screen
+});
+History.propTypes = {
+	screen: PropTypes.object
+};
+export default connect(mapStateToProps)(History);

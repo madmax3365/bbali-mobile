@@ -3,6 +3,7 @@ import {
 	View,
 	Text,
 	Dimensions,
+	Image,
 	StyleSheet,
 	TouchableOpacity
 } from 'react-native';
@@ -16,8 +17,10 @@ export default class SecondaryHeader extends Component {
 				<TouchableOpacity
 					style={styles.backButton}
 					onPress={() => this.props.navigation.goBack()}>
-					<Text style={styles.left}>{'<'}</Text>
-					<Text style={styles.right}>-</Text>
+					<Image
+						source={require('../assets/backButton.png')}
+						style={styles.goBack}
+					/>
 				</TouchableOpacity>
 				<Text style={styles.title}>{this.props.title}</Text>
 			</View>
@@ -39,6 +42,10 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		left: deviceWidth * 0.07568
 	},
+	goBack: {
+		width: deviceWidth * 0.051529,
+		height: deviceHeight * 0.015365
+	},
 	title: {
 		alignSelf: 'center',
 		textAlign: 'center',
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
 		fontSize: 20
 	},
 	backButton: {
-		width: deviceWidth * 0.049,
+		width: deviceWidth * 0.249,
 		height: deviceHeight * 0.0322,
 		flex: 1,
 		flexDirection: 'row',

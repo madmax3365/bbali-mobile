@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 		width: deviceWidth
 	},
 	map: {
-		height: deviceHeight * 0.93,
+		height: deviceHeight * 0.99,
 		width: deviceWidth
 	},
 	calloutCont: {

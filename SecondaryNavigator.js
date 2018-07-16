@@ -1,3 +1,4 @@
+'use strict';
 import React from 'react';
 import { Animated, Easing } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
@@ -25,6 +26,7 @@ import Manage from './src/screens/Manage';
 import Feedback from './src/screens/Feedback';
 import AddPayment from './src/screens/AddPayment';
 import Booking from './src/screens/Booking';
+import AddCC from './src/screens/AddCC';
 
 const transitionConfig = () => {
 	return {
@@ -111,6 +113,14 @@ export const Home = createStackNavigator(
 				header: <SecondaryHeader title="Add Payment" navigation={navigation} />
 			})
 		},
+		AddCC: {
+			screen: AddCC,
+			navigationOptions: ({ navigation }) => ({
+				header: (
+					<SecondaryHeader title="Add Credit Card" navigation={navigation} />
+				)
+			})
+		},
 		Booking: {
 			screen: Booking,
 			navigationOptions: ({ navigation }) => ({
@@ -121,7 +131,7 @@ export const Home = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'Home',
+		initialRouteName: 'AddCC',
 		transitionConfig
 	}
 );
@@ -194,6 +204,17 @@ export const SettingsScreen = createStackNavigator(
 		initialRouteName: 'Settings',
 		transitionConfig
 	}
+);
+export const UserSettingsScreen = createStackNavigator(
+	{
+		UserSettings: {
+			screen: UserSettings,
+			navigationOptions: ({ navigation }) => ({
+				header: <ScreenHeader title="Settings" navigation={navigation} />
+			})
+		}
+	},
+	{ transitionConfig }
 );
 export const ShareScreen = createStackNavigator({
 	History: {

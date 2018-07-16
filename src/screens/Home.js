@@ -10,7 +10,7 @@ export default class Home extends Component {
 				<View style={styles.heading}>
 					<Image source={require('../assets/logo.png')} style={styles.logo} />
 					<Text style={styles.welcome}>Welcome to Bbali !</Text>
-					<Text style={styles.desc}>A geek's #1 transport</Text>
+					<Text style={styles.desc}>A {'geek\'s'} #1 transport</Text>
 				</View>
 				<View style={styles.body}>
 					<View style={styles.bg}>

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { ImageBackground, TouchableOpacity, Text, Image } from 'react-native';
 import styles from '../ScreenStyles/LanguageStyles';
+import { connect } from 'react-redux';
+import { initialLaunch } from '../../Redux/actions/authActions';
 
-export default class Language extends Component {
+class Language extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -11,6 +13,7 @@ export default class Language extends Component {
 	}
 	doRoute = name => {
 		this.setState({ selected: name });
+		this.props.initialLaunch();
 		this.props.navigation.navigate('Home');
 	};
 	render() {
@@ -61,3 +64,13 @@ export default class Language extends Component {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	auth: state.auth,
+	errors: state.errors
+});
+
+export default connect(
+	mapStateToProps,
+	{ initialLaunch }
+)(Language);

@@ -4,6 +4,7 @@ import {
 	Text,
 	StyleSheet,
 	Dimensions,
+	TouchableOpacity,
 	Image,
 	ImageBackground
 } from 'react-native';
@@ -35,19 +36,23 @@ class Drawer extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<ImageBackground
+				<TouchableOpacity
 					style={styles.header}
-					source={require('../assets/wave_shape.png')}>
-					<Image
-						source={require('../assets/profile_placeholder.png')}
-						style={styles.avatar}
-					/>
-					<Text style={styles.name}>Harold Cuninghm</Text>
-					<View style={styles.loc}>
-						<Image source={require('../assets/location.png')} />
-						<Text style={styles.locText}>Austin</Text>
-					</View>
-				</ImageBackground>
+					onPress={() => this.doRoute('UserSettings')}>
+					<ImageBackground
+						style={styles.header}
+						source={require('../assets/wave_shape.png')}>
+						<Image
+							source={require('../assets/profile_placeholder.png')}
+							style={styles.avatar}
+						/>
+						<Text style={styles.name}>Harold Cuninghm</Text>
+						<View style={styles.loc}>
+							<Image source={require('../assets/location.png')} />
+							<Text style={styles.locText}>Austin</Text>
+						</View>
+					</ImageBackground>
+				</TouchableOpacity>
 				<View style={styles.menu}>
 					<View style={styles.items}>
 						<View style={styles.itemWrapper}>

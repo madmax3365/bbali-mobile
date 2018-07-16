@@ -66,8 +66,11 @@ const styles = StyleSheet.create({
 	},
 	menuWrap: {
 		flex: 1,
+		position: 'absolute',
+		top: 0,
+		left: 0,
 		justifyContent: 'center',
-		width: deviceWidth * 0.09159
+		width: deviceWidth * 0.39159
 	},
 	profile: {
 		position: 'absolute',

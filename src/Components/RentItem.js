@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 	},
 	check: {
 		position: 'absolute',
+		height: deviceHeight * 0.0491,
 		right: deviceWidth * 0.0386,
 		top: deviceHeight * 0.0548
 	},
@@ -56,8 +57,9 @@ const styles = StyleSheet.create({
 	description: {
 		position: 'absolute',
 		fontFamily: 'Poppins',
+		fontSize: 12,
 		top: deviceHeight * 0.01,
-		left: deviceWidth * 0.435
+		right: deviceWidth * 0.11
 	}
 });
 

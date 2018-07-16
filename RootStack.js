@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Animated, Easing } from 'react-native';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
 import Forgot from './src/screens/Forgot';
+import { connect } from 'react-redux';
 import Home from './src/screens/Home';
 import Reset from './src/screens/Reset';
 import DrawerNavigation from './DrawerNavigation';
@@ -57,7 +58,7 @@ const transitionConfig = () => {
 	};
 };
 
-const RootStack = createStackNavigator(
+const InitialLaunch = createStackNavigator(
 	{
 		Login: {
 			screen: Login,
@@ -107,5 +108,70 @@ const RootStack = createStackNavigator(
 		transitionConfig
 	}
 );
+const SecondLaunches = createStackNavigator(
+	{
+		Login: {
+			screen: Login,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Register: {
+			screen: Register,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Forgot: {
+			screen: Forgot,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Reset: {
+			screen: Reset,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Map: {
+			screen: DrawerNavigation,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Home: {
+			screen: Home,
+			navigationOptions: {
+				header: null
+			}
+		},
+		Language: {
+			screen: Language,
+			navigationOptions: {
+				header: null
+			}
+		}
+	},
+	{
+		initialRouteName: 'Map',
+		transitionConfig
+	}
+);
 
-export default RootStack;
+class RootStack extends Component {
+	render() {
+		console.log(this.props);
+		return this.props.auth.initialLaunch ? (
+			<InitialLaunch />
+		) : (
+			<SecondLaunches />
+		);
+	}
+}
+
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps)(RootStack);

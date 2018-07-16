@@ -1,7 +1,8 @@
-import { LOGIN_USER, REGISTER_USER } from '../actions/types';
+import { LOGIN_USER, REGISTER_USER, INITIAL_LAUNCH } from '../actions/types';
 import isEmpty from '../validation/is-empty';
 
 const initialState = {
+	initialLaunch: true,
 	isAuthenticated: false,
 	user: {}
 };
@@ -19,6 +20,11 @@ export default (state = initialState, action) => {
 				...state,
 				isAuthenticated: !isEmpty(action.payload),
 				user: action.payload
+			};
+		case INITIAL_LAUNCH:
+			return {
+				...state,
+				initialLaunch: false
 			};
 		default:
 			return state;

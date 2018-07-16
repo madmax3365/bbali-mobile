@@ -13,7 +13,7 @@ export default class Toast extends Component {
 					left: 0,
 					top: 0,
 					right: 0,
-					zIndex: 10,
+					zIndex: 30,
 					justifyContent: 'center'
 				}}>
 				<Text

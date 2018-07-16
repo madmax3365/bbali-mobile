@@ -68,10 +68,34 @@ const styles = StyleSheet.create({
 		left: deviceWidth * 0.10486,
 		top: deviceHeight * 0.4689
 	},
+	cc: {
+		flex: 1,
+		flexDirection: 'row'
+	},
+	gw: {
+		flex: 1,
+		flexDirection: 'row',
+		marginTop: deviceHeight * 0.01964
+	},
+	gwImage: {
+		width: deviceWidth * 0.06759,
+		height: deviceHeight * 0.0275
+	},
+	gwText: {
+		color: '#252d5c',
+		fontSize: 16,
+		fontFamily: 'Poppins',
+		marginLeft: deviceWidth * 0.05369
+	},
 	ccText: {
 		color: '#252d5c',
 		fontSize: 16,
-		fontFamily: 'Poppins'
+		fontFamily: 'Poppins',
+		marginLeft: deviceWidth * 0.05369
+	},
+	ccImage: {
+		width: deviceWidth * 0.06759,
+		height: deviceHeight * 0.0275
 	}
 });
 export default styles;

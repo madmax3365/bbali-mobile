@@ -52,7 +52,7 @@ class Login extends Component {
 					<Text style={styles.title}>Log In</Text>
 					<Image source={require('../assets/logo.png')} style={styles.logo} />
 					<Text style={styles.welcome}>Welcome to Bbali !</Text>
-					<Text style={styles.desc}>A geek's #1 transport</Text>
+					<Text style={styles.desc}>A {'geek\'s'} #1 transport</Text>
 				</View>
 				<View style={styles.body}>
 					<View style={styles.bg}>
@@ -92,7 +92,7 @@ class Login extends Component {
 						<Text style={styles.forgotText}>Forgot Password?</Text>
 					</TouchableOpacity>
 					<View style={styles.register}>
-						<Text style={styles.regText}>Don't have an account?</Text>
+						<Text style={styles.regText}>{'Don\'t'} have an account?</Text>
 						<TouchableOpacity
 							style={styles.cont}
 							onPress={() => this.clearStateAndRoute('Register')}>

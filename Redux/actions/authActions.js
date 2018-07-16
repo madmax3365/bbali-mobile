@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { REGISTER_USER, GET_ERRORS, LOGIN_USER } from './types';
+import { REGISTER_USER, GET_ERRORS, LOGIN_USER, INITIAL_LAUNCH } from './types';
+
+// Set app initial launch
+export const initialLaunch = () => {
+	return {
+		type: INITIAL_LAUNCH
+	};
+};
+
 // Register User
 export const registerUser = userData => dispatch => {
 	axios

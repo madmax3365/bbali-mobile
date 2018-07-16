@@ -42,10 +42,20 @@ export default class AddPayment extends Component {
 				</TouchableOpacity>
 				{this.state.show && (
 					<View style={styles.payment}>
-						<TouchableOpacity style={styles.cc}>
+						<TouchableOpacity
+							style={styles.cc}
+							onPress={this.props.navigation.navigate('AddCC')}>
+							<Image
+								source={require('../assets/credit_card.png')}
+								style={styles.ccImage}
+							/>
 							<Text style={styles.ccText}>Add Credit Card</Text>
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.gw}>
+							<Image
+								source={require('../assets/google_wallet.png')}
+								style={styles.gwImage}
+							/>
 							<Text style={styles.ccText}>Connect Google Wallet</Text>
 						</TouchableOpacity>
 					</View>

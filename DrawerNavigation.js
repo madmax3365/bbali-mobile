@@ -9,7 +9,8 @@ import {
 	ShareScreen,
 	MechanicScreen,
 	CreditsScreen,
-	FeedbackScreen
+	FeedbackScreen,
+	UserSettingsScreen
 } from './SecondaryNavigator';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -39,6 +40,9 @@ const DrawerNavigation = createDrawerNavigator(
 		},
 		Feedback: {
 			screen: FeedbackScreen
+		},
+		UserSettings: {
+			screen: UserSettingsScreen
 		}
 	},
 	{

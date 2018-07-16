@@ -3,7 +3,6 @@ import { View, Image, Text, TouchableOpacity, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
 import styles from '../ScreenStyles/MapsStyle';
-
 class Maps extends Component {
 	constructor(props) {
 		super(props);
@@ -89,12 +88,6 @@ class Maps extends Component {
 		];
 		return (
 			<View style={styles.container}>
-				{this.props.nav.drawerOpened && (
-					<Image
-						source={require('../assets/cross.png')}
-						style={styles.closeButton}
-					/>
-				)}
 				<MapView
 					style={styles.map}
 					provider="google"
@@ -106,7 +99,6 @@ class Maps extends Component {
 					{this.state.isMapReady && (
 						<MapView.Marker
 							ref={component => (this._userOnMap = component)}
-							title={this.props.title}
 							onPress={this.toggle}
 							image={require('../assets/user_on_map.png')}
 							coordinate={{
@@ -184,6 +176,7 @@ class Maps extends Component {
 		);
 	}
 }
+
 const mapStateToProps = state => ({
 	nav: state.nav
 });

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/FinishStyles';
+import PropTypes from 'prop-types';
 
 export default class Finished extends Component {
 	render() {
@@ -28,3 +29,6 @@ export default class Finished extends Component {
 		);
 	}
 }
+Finished.propTypes = {
+	onPress: PropTypes.func
+};
