@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, BackHandler } from 'react-native';
+import axios from 'axios';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {
+	getUserLocation,
+	getUserAddress
+} from '../../Redux/actions/authActions';
 import MapView from 'react-native-maps';
 import styles from '../ScreenStyles/MapsStyle';
 class Maps extends Component {
@@ -27,9 +33,11 @@ class Maps extends Component {
 	};
 	componentDidMount() {
 		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
-	}
-	onMapLayout = () => {
-		navigator.geolocation.getCurrentPosition(location =>
+		navigator.geolocation.getCurrentPosition(location => {
+			this.props.getUserLocation({
+				latitude: location.coords.latitude,
+				longitude: location.coords.longitude
+			});
 			this.setState({
 				region: {
 					latitude: location.coords.latitude,
@@ -37,8 +45,21 @@ class Maps extends Component {
 					latitudeDelta: 0.002,
 					longitudeDelta: 0.002
 				}
-			})
-		);
+			});
+			axios
+				.get(
+					'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+						location.coords.latitude +
+						',' +
+						location.coords.longitude +
+						'&key=AIzaSyAMC2YX6ZzFUNnbj4Y6IUr1JBOJRQmhcmw'
+				)
+				.then(res =>
+					this.props.getUserAddress(res.data.results[0].formatted_address)
+				);
+		});
+	}
+	onMapLayout = () => {
 		this.setState({ isMapReady: true });
 	};
 
@@ -164,7 +185,9 @@ class Maps extends Component {
 					<TouchableOpacity
 						style={styles.pick}
 						activeOpacity={0.95}
-						onPress={() => this.props.navigation.navigate('Rent')}>
+						onPress={() =>
+							this.props.navigation.navigate('Rent', { from: 'Pick Up' })
+						}>
 						<Image
 							source={require('../assets/pickup.png')}
 							style={styles.icon}
@@ -176,9 +199,16 @@ class Maps extends Component {
 		);
 	}
 }
+Maps.propTypes = {
+	getUserLocation: PropTypes.func,
+	getUserAddress: PropTypes.func
+};
 
 const mapStateToProps = state => ({
 	nav: state.nav
 });
 
-export default connect(mapStateToProps)(Maps);
+export default connect(
+	mapStateToProps,
+	{ getUserAddress, getUserLocation }
+)(Maps);

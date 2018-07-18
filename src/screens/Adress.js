@@ -7,15 +7,16 @@ import {
 	Image,
 	BackHandler
 } from 'react-native';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/AdressStyles';
 
-export default class Adress extends Component {
+class Adress extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			address:
-				'Mr. Gildong Hong, Bldg. 102 Unit 304, Sajik- ro-3-gil 23, Jongno-gu, Seoul 30174 (South Korea)'
+			address: props.auth.user.address
 		};
 	}
 	componentWillUnmount() {
@@ -46,7 +47,11 @@ export default class Adress extends Component {
 							style={styles.link}
 						/>
 					</View>
-					<SubmitButton position={styles.button} title="CHANGE" />
+					<SubmitButton
+						position={styles.button}
+						title="CHANGE"
+						onPress={() => this.props.navigation.navigate('Rent')}
+					/>
 				</View>
 				<View style={styles.bottom}>
 					<TouchableOpacity style={styles.item}>
@@ -75,3 +80,11 @@ export default class Adress extends Component {
 		);
 	}
 }
+Adress.propTypes = {
+	auth: PropTypes.object
+};
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps)(Adress);

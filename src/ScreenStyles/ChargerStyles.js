@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
 		borderRadius: 5
 	},
 	locationText: {
-		fontSize: 12
+		fontSize: 12,
+		textAlign: 'center'
 	},
 	button: {
 		position: 'absolute',

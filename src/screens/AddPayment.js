@@ -44,7 +44,7 @@ export default class AddPayment extends Component {
 					<View style={styles.payment}>
 						<TouchableOpacity
 							style={styles.cc}
-							onPress={this.props.navigation.navigate('AddCC')}>
+							onPress={() => this.props.navigation.navigate('AddCC')}>
 							<Image
 								source={require('../assets/credit_card.png')}
 								style={styles.ccImage}

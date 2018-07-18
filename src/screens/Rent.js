@@ -44,6 +44,17 @@ export default class Rent extends Component {
 		this.props.navigation.goBack();
 		return true;
 	};
+	doRoute = e => {
+		e.preventDefault();
+		const from = this.props.navigation.state.params.from;
+		if (this.state.activeName === 'Hourly') {
+			this.props.navigation.navigate('Booking');
+		} else {
+			from
+				? this.props.navigation.navigate('QR')
+				: this.props.navigation.navigate('AddPayment');
+		}
+	};
 	componentDidMount() {
 		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
 	}
@@ -67,7 +78,7 @@ export default class Rent extends Component {
 				<SubmitButton
 					title="NEXT"
 					position={styles.button}
-					onPress={() => this.props.navigation.navigate('Booking')}
+					onPress={this.doRoute}
 				/>
 			</View>
 		);

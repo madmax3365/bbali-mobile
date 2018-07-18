@@ -3,6 +3,9 @@ import { StyleSheet, Dimensions } from 'react-native';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
+	wrapper: {
+		flex: 1
+	},
 	container: {
 		flex: 1,
 		alignSelf: 'center',
@@ -85,9 +88,31 @@ const styles = StyleSheet.create({
 	},
 	picker: {
 		width: deviceWidth,
-		height: deviceHeight * 0.195,
+		height: deviceHeight * 0.332578,
 		position: 'absolute',
-		bottom: 0
+		bottom: 0,
+		left: 0,
+		right: 0,
+		flex: 1,
+		flexDirection: 'row'
+	},
+	left: {
+		width: deviceWidth * 0.5,
+		alignSelf: 'center',
+		backgroundColor: '#fff'
+	},
+	right: {
+		width: deviceWidth * 0.5,
+		alignSelf: 'center',
+		backgroundColor: '#fff'
+	},
+	overlay: {
+		backgroundColor: 'rgba(19, 219, 151, 0.1)',
+		position: 'absolute',
+		bottom: deviceHeight * 0.132578,
+		width: deviceWidth * 0.87359,
+		height: deviceHeight * 0.06893688,
+		alignSelf: 'center'
 	}
 });
 export default styles;

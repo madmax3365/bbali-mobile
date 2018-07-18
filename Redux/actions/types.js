@@ -4,3 +4,5 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const LOGIN_USER = 'LOGIN_USER';
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 export const INITIAL_LAUNCH = 'INITIAL_LAUNCH';
+export const GET_USER_LOCATION = 'GET_USER_LOCATION';
+export const GET_USER_ADDRESS = 'GET_USER_ADDRESS';

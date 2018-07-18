@@ -6,9 +6,11 @@ import Register from './src/screens/Register';
 import Forgot from './src/screens/Forgot';
 import { connect } from 'react-redux';
 import Home from './src/screens/Home';
+import PropTypes from 'prop-types';
 import Reset from './src/screens/Reset';
 import DrawerNavigation from './DrawerNavigation';
 import Language from './src/screens/Language';
+import HowTo from './src/screens/HowTo';
 
 const transitionConfig = () => {
 	return {
@@ -96,6 +98,12 @@ const InitialLaunch = createStackNavigator(
 				header: null
 			}
 		},
+		HowTo: {
+			screen: HowTo,
+			navigationOptions: {
+				header: null
+			}
+		},
 		Language: {
 			screen: Language,
 			navigationOptions: {
@@ -146,6 +154,12 @@ const SecondLaunches = createStackNavigator(
 				header: null
 			}
 		},
+		HowTo: {
+			screen: HowTo,
+			navigationOptions: {
+				header: null
+			}
+		},
 		Language: {
 			screen: Language,
 			navigationOptions: {
@@ -154,14 +168,13 @@ const SecondLaunches = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'Map',
+		initialRouteName: 'HowTo',
 		transitionConfig
 	}
 );
 
 class RootStack extends Component {
 	render() {
-		console.log(this.props);
 		return this.props.auth.initialLaunch ? (
 			<InitialLaunch />
 		) : (
@@ -169,7 +182,9 @@ class RootStack extends Component {
 		);
 	}
 }
-
+RootStack.propTypes = {
+	auth: PropTypes.object
+};
 const mapStateToProps = state => ({
 	auth: state.auth
 });

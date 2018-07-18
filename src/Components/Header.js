@@ -36,11 +36,11 @@ class Header extends Component {
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={styles.profile}
-					onPress={() => this.props.navigation.navigate('UserSettings')}>
-					<Text style={styles.profileText}>Welcome, John</Text>
+					onPress={() => this.props.navigation.navigate('QR', { from: 'QR' })}>
+					<Text style={styles.profileText}>Scan QR</Text>
 					<Image
 						resizeMode="stretch"
-						source={require('../assets/profile_placeholder.png')}
+						source={require('../assets/qrcode.png')}
 						style={styles.profilePic}
 					/>
 				</TouchableOpacity>

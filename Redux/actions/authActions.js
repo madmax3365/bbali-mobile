@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { REGISTER_USER, GET_ERRORS, LOGIN_USER, INITIAL_LAUNCH } from './types';
+import {
+	REGISTER_USER,
+	GET_ERRORS,
+	LOGIN_USER,
+	INITIAL_LAUNCH,
+	GET_USER_LOCATION,
+	GET_USER_ADDRESS
+} from './types';
 
 // Set app initial launch
 export const initialLaunch = () => {
@@ -49,4 +56,19 @@ export const loginUser = userData => dispatch => {
 				payload: err.response.data.data.message
 			})
 		);
+};
+
+// Get user's location
+export const getUserLocation = location => {
+	return {
+		type: GET_USER_LOCATION,
+		payload: location
+	};
+};
+// Get user's address
+export const getUserAddress = address => {
+	return {
+		type: GET_USER_ADDRESS,
+		payload: address
+	};
 };

@@ -131,7 +131,7 @@ export const Home = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'AddCC',
+		initialRouteName: 'Home',
 		transitionConfig
 	}
 );

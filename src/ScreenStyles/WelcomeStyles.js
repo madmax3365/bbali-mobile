@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		position: 'absolute',
-		top: deviceHeight * 0.1144,
+		top: deviceHeight * 0.106,
 		textAlign: 'center',
 		color: '#fff',
 		fontSize: 28,
@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		fontFamily: 'Arial Rounded MT Bold'
 	},
-
-	screen4Text: {
+	bottomTitle: {
 		position: 'absolute',
 		fontSize: 22,
 		fontFamily: 'Arial Rounded MT Bold',
@@ -29,47 +28,22 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		textAlign: 'center',
 		color: '#252d5c',
-		top: deviceHeight * 0.48,
-		width: deviceWidth * 0.86
+		bottom: deviceHeight * 0.38633
 	},
-	screen5Text: {
+	bottomDesc: {
 		position: 'absolute',
-		fontSize: 22,
+		fontSize: 14,
 		fontFamily: 'Arial Rounded MT Bold',
-		fontWeight: '500',
-		alignSelf: 'center',
-		textAlign: 'left',
-		color: '#252d5c',
-		top: deviceHeight * 0.349,
-		width: deviceWidth * 0.86
-	},
-	screen5Desc: {
-		position: 'absolute',
-		fontSize: 22,
-		fontFamily: 'Arial Rounded MT Bold',
-		fontWeight: '500',
 		alignSelf: 'center',
 		textAlign: 'center',
 		color: '#252d5c',
-		top: deviceHeight * 0.22526,
-		width: deviceWidth * 0.86
-	},
-	bottom: {
-		position: 'absolute',
-		fontSize: 22,
-		fontFamily: 'Arial Rounded MT Bold',
-		fontWeight: '500',
-		alignSelf: 'center',
-		textAlign: 'center',
-		color: '#252d5c',
-		bottom: deviceHeight * 0.0704,
-		width: deviceWidth * 0.86
+		top: deviceHeight * 0.643
 	},
 	img: {},
 	dotsContainer: {
 		backgroundColor: 'transparent',
 		position: 'absolute',
-		bottom: 0
+		bottom: deviceHeight * 0.2
 	},
 	slider: {
 		width: deviceWidth,
@@ -80,7 +54,7 @@ const styles = StyleSheet.create({
 		width: deviceHeight * 0.0167,
 		height: deviceHeight * 0.0167,
 		borderRadius: 5,
-		marginHorizontal: 3,
+		marginHorizontal: 1,
 		backgroundColor: '#252d5c'
 	},
 	inactiveDots: {

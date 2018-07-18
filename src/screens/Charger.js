@@ -1,48 +1,31 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import { View, Text, TextInput, Image } from 'react-native';
 import MapView from 'react-native-maps';
+import PropTypes from 'prop-types';
 import styles from '../ScreenStyles/ChargerStyles';
 import SubmitButton from '../Components/SubmitButton';
 
-export default class Charger extends Component {
+class Charger extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			location: '',
+			location: props.auth.user.address,
 			calloutVisible: false,
 			isMapReady: false,
 			region: {
-				latitude: 1.317605,
-				longitude: 103.852776,
+				latitude: props.auth.user.location.latitude,
+				longitude: props.auth.user.location.longitude,
 				latitudeDelta: 0.02,
 				longitudeDelta: 0.02
 			}
 		};
 	}
+	handleChange = e => {
+		e.preventDefault();
+	};
 
 	onMapLayout = () => {
-		navigator.geolocation.getCurrentPosition(location =>
-			this.setState({
-				region: {
-					latitude: location.coords.latitude,
-					longitude: location.coords.longitude,
-					latitudeDelta: 0.002,
-					longitudeDelta: 0.002
-				}
-			})
-		);
-		axios
-			.get(
-				'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-					this.state.region.latitude +
-					',' +
-					this.state.region.longitude +
-					'&key=AIzaSyAMC2YX6ZzFUNnbj4Y6IUr1JBOJRQmhcmw'
-			)
-			.then(res =>
-				this.setState({ location: res.data.results[0].formatted_address })
-			);
 		this.setState({ isMapReady: true });
 	};
 
@@ -129,15 +112,25 @@ export default class Charger extends Component {
 							value={this.state.location}
 							style={styles.locationText}
 							underlineColorAndroid="transparent"
+							multiline
 							onChangeText={text => this.setState({ location: text })}
 						/>
 					</View>
 					<SubmitButton
 						title="ADD MY CHARGING LOCATION"
 						position={styles.button}
+						onPress={this.handleChange}
 					/>
 				</View>
 			</View>
 		);
 	}
 }
+Charger.propTypes = {
+	auth: PropTypes.object
+};
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps)(Charger);

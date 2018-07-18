@@ -28,7 +28,10 @@ export default class QR extends Component {
 	}
 	checkQr = () => {
 		if (this.state.code !== '') {
-			this.props.navigation.navigate('AddPayment');
+			const from = this.props.navigation.state.params
+				? this.props.navigation.state.params.from
+				: '';
+			this.props.navigation.navigate('AddPayment', { from: from });
 		} else {
 			this.setState({ error: 'You must scan QR code first!' });
 		}
