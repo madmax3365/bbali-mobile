@@ -152,6 +152,12 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: '500',
 		marginLeft: deviceWidth * 0.023349
+	},
+	showText: {
+		color: '#313a6d',
+		fontFamily: 'Poppins',
+
+		marginLeft: deviceWidth * 0.023349
 	}
 });
 export default styles;

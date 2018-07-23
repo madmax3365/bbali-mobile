@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 	},
 	login: {
 		position: 'absolute',
-		bottom: deviceHeight * 0.25158
+		bottom: deviceHeight * 0.22158
 	},
 	emailTitle: {
 		position: 'absolute',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 	},
 	passwordTitle: {
 		position: 'absolute',
-		top: deviceHeight * 0.13167,
+		top: deviceHeight * 0.15167,
 		left: deviceWidth * 0.080645,
 		color: '#1b1b1b',
 		fontFamily: 'Poppins - Semi Bold'
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 	},
 	forgot: {
 		position: 'absolute',
-		top: deviceHeight * 0.2,
+		top: deviceHeight * 0.23,
 		left: deviceWidth * 0.080645,
 		zIndex: 10
 	},
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
 	},
 	register: {
 		position: 'absolute',
-		bottom: deviceHeight * 0.209,
+		bottom: deviceHeight * 0.179,
 		flex: 1,
 		flexDirection: 'row',
 		left: deviceWidth * 0.080645

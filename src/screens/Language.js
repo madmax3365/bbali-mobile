@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ImageBackground, TouchableOpacity, Text, Image } from 'react-native';
 import styles from '../ScreenStyles/LanguageStyles';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { initialLaunch } from '../../Redux/actions/authActions';
 
 class Language extends Component {
@@ -13,8 +14,8 @@ class Language extends Component {
 	}
 	doRoute = name => {
 		this.setState({ selected: name });
-		this.props.initialLaunch();
-		this.props.navigation.navigate('Home');
+
+		this.props.navigation.navigate('Welcome');
 	};
 	render() {
 		return (
@@ -64,7 +65,9 @@ class Language extends Component {
 		);
 	}
 }
-
+Language.propTypes = {
+	initialLaunch: PropTypes.func
+};
 const mapStateToProps = state => ({
 	auth: state.auth,
 	errors: state.errors

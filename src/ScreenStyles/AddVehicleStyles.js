@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
 		fontFamily: 'Poppins'
 	},
 	type: {
+		backgroundColor: 'rgba(52, 52, 52, 0)',
 		width: deviceWidth * 0.7029,
 		color: '#898da4'
 	}

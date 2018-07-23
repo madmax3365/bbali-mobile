@@ -44,12 +44,21 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		fontFamily: 'Poppins'
 	},
-	input: {
+	inputCont: {
 		position: 'absolute',
-		paddingTop: 0,
+		flex: 1,
+		alignSelf: 'center',
 		top: deviceHeight * 0.286,
 		width: deviceWidth * 0.61655,
+		height: deviceHeight * 0.2375
+	},
+	input: {
+		position: 'absolute',
+
+		minWidth: deviceWidth * 0.61655,
+
 		height: deviceHeight * 0.2375,
+
 		backgroundColor: 'rgba(19, 219, 151, 0.1)',
 		borderRadius: 5
 	},
@@ -78,11 +87,14 @@ const styles = StyleSheet.create({
 	},
 	feed: {
 		position: 'absolute',
-		top: deviceHeight * 0.255,
+		top: deviceHeight * 0.235,
 		color: '#252d5c',
 		fontSize: 16,
 		fontFamily: 'Poppins',
-		left: deviceWidth * 0.097
+		left: deviceWidth * 0.122
+	},
+	stars: {
+		marginTop: deviceHeight * 0.146
 	}
 });
 export default styles;

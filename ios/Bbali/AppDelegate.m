@@ -9,12 +9,22 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
++ @import GoogleMaps;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  +  [GMSServices provideAPIKey:@"AIzaSyAMC2YX6ZzFUNnbj4Y6IUr1JBOJRQmhcmw"];
   NSURL *jsCodeLocation;
+  for (NSString* family in [UIFont familyNames])
+  {
+    NSLog(@"%@", family);
+    for (NSString* name in [UIFont fontNamesForFamilyName: family])
+    {
+      NSLog(@" %@", name);
+    }
+  }
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 

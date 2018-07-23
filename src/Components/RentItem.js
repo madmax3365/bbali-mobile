@@ -36,7 +36,10 @@ const styles = StyleSheet.create({
 	},
 	check: {
 		position: 'absolute',
-		height: deviceHeight * 0.0491,
+		flex: 1,
+		alignItems: 'flex-end',
+		height: deviceHeight * 0.1491,
+		width: deviceWidth * 0.3591,
 		right: deviceWidth * 0.0386,
 		top: deviceHeight * 0.0548
 	},

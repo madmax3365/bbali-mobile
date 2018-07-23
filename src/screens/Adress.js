@@ -54,21 +54,27 @@ class Adress extends Component {
 					/>
 				</View>
 				<View style={styles.bottom}>
-					<TouchableOpacity style={styles.item}>
+					<TouchableOpacity
+						style={styles.item}
+						onPress={() => this.props.navigation.navigate('Home')}>
 						<Image
 							source={require('../assets/find_scooter.png')}
 							style={[styles.tabIcon, styles.size1]}
 						/>
 						<Text style={styles.itemText}>Find Scooters</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.item}>
+					<TouchableOpacity
+						style={styles.item}
+						onPress={() => this.props.navigation.navigate('Home')}>
 						<Image
 							source={require('../assets/charging.png')}
 							style={[styles.tabIcon, styles.size2]}
 						/>
 						<Text style={styles.itemText}>Find Charging</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.item}>
+					<TouchableOpacity
+						style={styles.item}
+						onPress={() => this.props.navigation.navigate('Home')}>
 						<Image
 							source={require('../assets/current_status.png')}
 							style={[styles.tabIcon, styles.size3]}

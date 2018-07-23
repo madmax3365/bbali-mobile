@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 		marginTop: deviceHeight * 0.01964
 	},
 	gwImage: {
-		width: deviceWidth * 0.06759,
+		width: deviceWidth * 0.07759,
 		height: deviceHeight * 0.0275
 	},
 	gwText: {
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 		marginLeft: deviceWidth * 0.05369
 	},
 	ccImage: {
-		width: deviceWidth * 0.06759,
+		width: deviceWidth * 0.07759,
 		height: deviceHeight * 0.0275
 	}
 });

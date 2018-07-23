@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, ImageBackground, Dimensions, Image } from 'react-native';
+import {
+	ImageBackground,
+	Dimensions,
+	Image,
+	Text,
+	TouchableOpacity,
+	BackHandler
+} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styles from '../ScreenStyles/WelcomeStyles';
 
 const deviceWidth = Dimensions.get('window').width;
 export default class Welcome extends Component {
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+	}
+
+	handleBackPress = () => {
+		return true;
+	};
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+	}
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,37 +29,27 @@ export default class Welcome extends Component {
 			carousel: [
 				{
 					id: 1,
-					title: 'Find a Scooter',
-					bottomTitle: 'Find Scooter Around You',
-					bottomDesc:
-						'ride anywhere you want within the whole\ncity without restriction',
-					img: require('../assets/howTo/howTo1.png')
+					img: 'welcome1'
 				},
 				{
 					id: 2,
-					title: 'Order to your home',
-					bottomTitle: 'Get Scooter At Home',
-					bottomDesc: 'use the app to have a scooter delivered to\nyou',
-					img: require('../assets/howTo/howTo2.png')
+					img: 'welcome2'
 				},
 				{
 					id: 3,
-					title: 'Refer a Friend',
-					bottomTitle: 'Get a Free Ride ',
-					bottomDesc: 'get a free ride when friend signs up',
-					img: require('../assets/howTo/howTo3.png')
+					img: 'welcome3'
 				}
 			]
 		};
 	}
 	_renderItem = ({ item }) => {
-		return (
-			<View style={styles.slider} key={`image${item.id}`}>
-				<Text style={styles.title}>{item.title}</Text>
-				<Text style={styles.bottomTitle}>{item.bottomTitle}</Text>
-				<Text style={styles.bottomDesc}>{item.bottomDesc}</Text>
-			</View>
-		);
+		return <Image source={{ uri: item.img }} style={styles.img} />;
+	};
+
+	doRoute = () => {
+		this.state.activeSlide < 2
+			? this > this._carousel.snapToItem(this.state.activeSlide + 1)
+			: this.props.navigation.navigate('Home');
 	};
 
 	get pagination() {
@@ -61,7 +68,9 @@ export default class Welcome extends Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
+			<ImageBackground
+				source={require('../assets/howTo/bg.png')}
+				style={styles.container}>
 				<Carousel
 					ref={c => {
 						this._carousel = c;
@@ -73,7 +82,18 @@ export default class Welcome extends Component {
 					onSnapToItem={index => this.setState({ activeSlide: index })}
 				/>
 				{this.pagination}
-			</View>
+				<TouchableOpacity style={styles.nextButton} onPress={this.doRoute}>
+					<Image
+						source={require('../assets/welcome/next.png')}
+						style={styles.next}
+					/>
+				</TouchableOpacity>
+				<TouchableOpacity
+					style={styles.skipButton}
+					onPress={() => this.props.navigation.navigate('Home')}>
+					<Text style={styles.skip}>Skip</Text>
+				</TouchableOpacity>
+			</ImageBackground>
 		);
 	}
 }

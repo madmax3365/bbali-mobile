@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, BackHandler } from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/HomeStyles';
 
 export default class Home extends Component {
+	componentWillUnmount() {
+		BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+	}
+
+	handleBackPress = () => {
+		return true;
+	};
+	componentDidMount() {
+		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+	}
 	render() {
 		return (
 			<View style={styles.container}>
@@ -30,7 +40,9 @@ export default class Home extends Component {
 						position={styles.login}
 						onPress={() => this.props.navigation.navigate('Login')}
 					/>
-					<TouchableOpacity style={styles.howto}>
+					<TouchableOpacity
+						style={styles.howto}
+						onPress={() => this.props.navigation.navigate('HowTo')}>
 						<Text style={styles.howtoText}>HOW TO USE?</Text>
 					</TouchableOpacity>
 				</View>

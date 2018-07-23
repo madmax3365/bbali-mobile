@@ -11,6 +11,7 @@ import Reset from './src/screens/Reset';
 import DrawerNavigation from './DrawerNavigation';
 import Language from './src/screens/Language';
 import HowTo from './src/screens/HowTo';
+import Welcome from './src/screens/Welcome';
 
 const transitionConfig = () => {
 	return {
@@ -109,6 +110,12 @@ const InitialLaunch = createStackNavigator(
 			navigationOptions: {
 				header: null
 			}
+		},
+		Welcome: {
+			screen: Welcome,
+			navigationOptions: {
+				header: null
+			}
 		}
 	},
 	{
@@ -168,18 +175,14 @@ const SecondLaunches = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: 'HowTo',
+		initialRouteName: 'Home',
 		transitionConfig
 	}
 );
 
 class RootStack extends Component {
 	render() {
-		return this.props.auth.initialLaunch ? (
-			<InitialLaunch />
-		) : (
-			<SecondLaunches />
-		);
+		return true ? <InitialLaunch /> : <SecondLaunches />;
 	}
 }
 RootStack.propTypes = {

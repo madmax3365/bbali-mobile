@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 		marginLeft: deviceWidth * 0.04106
 	},
 	ccImage: {
-		width: deviceWidth * 0.08,
+		width: deviceWidth * 0.09,
 		height: deviceHeight * 0.03285
 	}
 });

@@ -10,36 +10,13 @@ const styles = StyleSheet.create({
 		width: deviceWidth,
 		height: deviceHeight
 	},
-	title: {
-		position: 'absolute',
-		top: deviceHeight * 0.106,
-		textAlign: 'center',
-		color: '#fff',
-		fontSize: 28,
-		fontWeight: '500',
+
+	img: {
 		alignSelf: 'center',
-		fontFamily: 'Arial Rounded MT Bold'
+		flex: 1,
+		width: deviceWidth,
+		height: deviceHeight
 	},
-	bottomTitle: {
-		position: 'absolute',
-		fontSize: 22,
-		fontFamily: 'Arial Rounded MT Bold',
-		fontWeight: '500',
-		alignSelf: 'center',
-		textAlign: 'center',
-		color: '#252d5c',
-		bottom: deviceHeight * 0.38633
-	},
-	bottomDesc: {
-		position: 'absolute',
-		fontSize: 14,
-		fontFamily: 'Arial Rounded MT Bold',
-		alignSelf: 'center',
-		textAlign: 'center',
-		color: '#252d5c',
-		top: deviceHeight * 0.643
-	},
-	img: {},
 	dotsContainer: {
 		backgroundColor: 'transparent',
 		position: 'absolute',
@@ -48,7 +25,7 @@ const styles = StyleSheet.create({
 	slider: {
 		width: deviceWidth,
 		height: deviceHeight,
-		backgroundColor: 'rgb(106,195,204)'
+		backgroundColor: 'transparent'
 	},
 	dots: {
 		width: deviceHeight * 0.0167,
@@ -61,6 +38,30 @@ const styles = StyleSheet.create({
 		width: deviceHeight * 0.0167,
 		height: deviceHeight * 0.0167,
 		borderRadius: 5
+	},
+	nextButton: {
+		position: 'absolute',
+		flex: 1,
+		bottom: deviceHeight * 0.11978,
+		alignSelf: 'center'
+	},
+	next: {
+		width: deviceWidth * 0.5067,
+		height: deviceHeight * 0.079,
+		alignSelf: 'center'
+	},
+	skipButton: {
+		position: 'absolute',
+		flex: 1,
+		bottom: deviceHeight * 0.0568,
+		alignSelf: 'center',
+		width: deviceWidth * 0.5067
+	},
+	skip: {
+		color: '#fff',
+		fontSize: deviceHeight * 0.02266,
+		fontFamily: 'Arial Rounded MT Bold',
+		textAlign: 'center'
 	}
 });
 export default styles;

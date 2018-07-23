@@ -46,7 +46,10 @@ export default class Rent extends Component {
 	};
 	doRoute = e => {
 		e.preventDefault();
-		const from = this.props.navigation.state.params.from;
+
+		const from = this.props.navigation.state.params
+			? this.props.navigation.state.params.from
+			: undefined;
 		if (this.state.activeName === 'Hourly') {
 			this.props.navigation.navigate('Booking');
 		} else {

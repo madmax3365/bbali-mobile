@@ -10,15 +10,14 @@ export default class Settings extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity
-					onPress={() => this.props.navigation.navigate('UserSettings')}
-					style={styles.head}>
-					<Text style={styles.title}>User Settings</Text>
-				</TouchableOpacity>
 				<View style={styles.menu}>
 					<SettingsItem
 						title="Admin Panel"
 						doRoute={() => this.doRoute('Admin')}
+					/>
+					<SettingsItem
+						title="UserSettings"
+						doRoute={() => this.doRoute('UserSettings')}
 					/>
 					<SettingsItem title="Credit Cards" />
 					<SettingsItem title="Term and Condition" />
