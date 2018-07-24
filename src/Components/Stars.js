@@ -26,7 +26,7 @@ export default class Stars extends Component {
 					onPress={() => this.setState({ count: item })}>
 					{this.state.count >= item ? (
 						<Image
-							source={require('../assets/rate_app_g.png')}
+							source={require('../assets/blue_star.png')}
 							style={styles.star}
 						/>
 					) : (

@@ -6,6 +6,7 @@ import {
 	StyleSheet,
 	Dimensions
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
 		borderLeftColor: '#13db97'
 	},
 	inactive: {
-		height: deviceHeight * 0.077445,
+		height: deviceHeight * 0.059445,
 		width: deviceWidth * 0.775,
 		flex: 1,
 		flexDirection: 'row',
@@ -33,12 +34,13 @@ const styles = StyleSheet.create({
 	text: {
 		marginLeft: deviceWidth * 0.0378,
 		color: '#fff',
-		fontFamily: 'Poppins',
-		fontWeight: '400'
+		fontFamily: 'Poppins-Regular',
+		fontWeight: '400',
+		fontSize: deviceHeight * 0.02
 	}
 });
 
-export default props => {
+const MenuItem = props => {
 	return (
 		<TouchableOpacity
 			style={props.active ? styles.active : styles.inactive}
@@ -48,3 +50,12 @@ export default props => {
 		</TouchableOpacity>
 	);
 };
+
+MenuItem.propTypes = {
+	active: PropTypes.bool,
+	doRoute: PropTypes.func,
+	source: PropTypes.number,
+	text: PropTypes.string
+};
+
+export default MenuItem;

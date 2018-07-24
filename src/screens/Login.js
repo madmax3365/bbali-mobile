@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { View, TextInput, Image, Text, TouchableOpacity } from 'react-native';
+import {
+	KeyboardAvoidingView,
+	View,
+	TextInput,
+	Image,
+	Text,
+	TouchableOpacity,
+	Dimensions
+} from 'react-native';
 import SubmitButton from '../Components/SubmitButton';
 import styles from '../ScreenStyles/LoginStyles';
 import { connect } from 'react-redux';
@@ -7,6 +15,7 @@ import PropTypes from 'prop-types';
 import Toast from '../Components/Toast';
 import { loginUser } from '../../Redux/actions/authActions';
 
+const deviceHeight = Dimensions.get('window').height;
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -46,7 +55,11 @@ class Login extends Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
+			<KeyboardAvoidingView
+				keyboardVerticalOffset={-deviceHeight * 0.155289}
+				behavior="position"
+				style={styles.container}
+				enabled>
 				{this.state.error !== '' && <Toast message={this.state.error} />}
 				<View style={styles.heading}>
 					<Text style={styles.title}>Log In</Text>
@@ -100,7 +113,7 @@ class Login extends Component {
 						</TouchableOpacity>
 					</View>
 				</View>
-			</View>
+			</KeyboardAvoidingView>
 		);
 	}
 }

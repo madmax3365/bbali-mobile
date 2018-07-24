@@ -18,7 +18,15 @@ class Drawer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			routeName: 'Home'
+			routeName: 'Home',
+			items: [
+				{
+					route: 'Home',
+					imgActive: require('../assets/home_g.png'),
+					imgInactive: require('../assets/home_blue.png'),
+					title: 'Home'
+				}
+			]
 		};
 	}
 	componentDidUpdate(prevProps) {
@@ -112,7 +120,7 @@ class Drawer extends Component {
 								}
 								doRoute={() => this.doRoute('Share')}
 								active={this.state.routeName === 'Share'}
-								text="Share a ride"
+								text="Promo Code"
 							/>
 						</View>
 						<View style={styles.itemWrapper}>
@@ -160,6 +168,40 @@ class Drawer extends Component {
 								doRoute={() => this.doRoute('Mechanic')}
 								active={this.state.routeName === 'Mechanic'}
 								text="Become a mechanic"
+							/>
+						</View>
+						<View style={styles.itemWrapper}>
+							<MenuItem
+								source={
+									this.state.routeName === 'DeliveryPerson'
+										? require('../assets/delivery_person_g.png')
+										: require('../assets/delivery_person_b.png')
+								}
+								active={this.state.routeName === 'DeliveryPerson'}
+								text="Become a delivery person"
+							/>
+						</View>
+						<View style={styles.itemWrapper}>
+							<MenuItem
+								source={
+									this.state.routeName === 'Bitcoin'
+										? require('../assets/bitcoin_g.png')
+										: require('../assets/bitcoin_b.png')
+								}
+								doRoute={() => this.doRoute('Bitcoin')}
+								active={this.state.routeName === 'Bitcoin'}
+								text="Bitcoin Wallet"
+							/>
+						</View>
+						<View style={styles.itemWrapper}>
+							<MenuItem
+								source={
+									this.state.routeName === 'Etherium'
+										? require('../assets/eth_g.png')
+										: require('../assets/eth_b.png')
+								}
+								active={this.state.routeName === 'Etherium'}
+								text="Ethereum Wallet"
 							/>
 						</View>
 					</View>
@@ -219,7 +261,7 @@ const styles = StyleSheet.create({
 	},
 	items: {
 		position: 'absolute',
-		top: deviceHeight * 0.218
+		top: deviceHeight * 0.22
 	}
 });
 

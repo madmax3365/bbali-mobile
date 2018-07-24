@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput, Image } from 'react-native';
+import {
+	KeyboardAvoidingView,
+	Dimensions,
+	View,
+	Text,
+	TextInput,
+	Image
+} from 'react-native';
 import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
 import styles from '../ScreenStyles/ChargerStyles';
 import SubmitButton from '../Components/SubmitButton';
 
+const deviceHeight = Dimensions.get('window').height;
 class Charger extends Component {
 	constructor(props) {
 		super(props);
@@ -74,55 +82,62 @@ class Charger extends Component {
 			}
 		];
 		return (
-			<View style={styles.container}>
-				<MapView
-					style={styles.map}
-					provider="google"
-					customMapStyle={mapStyle}
-					minZoomLevel={17}
-					calloutOffset={{ x: -8, y: 28 }}
-					calloutAnchor={{ x: 4, y: 5 }}
-					region={this.state.region}
-					onLayout={this.onMapLayout}>
-					{this.state.isMapReady && (
-						<MapView.Marker
-							ref={component => (this._userOnMap = component)}
-							onPress={this.toggle}
-							image={require('../assets/user_on_map.png')}
-							coordinate={{
-								latitude: this.state.region.latitude,
-								longitude: this.state.region.longitude
-							}}>
-							<MapView.Callout tooltip={true}>
-								<View style={styles.calloutCont}>
-									<Text style={styles.calloutText}>You are here</Text>
-									<Image
-										source={require('../assets/callout.png')}
-										style={styles.calloutImage}
-									/>
-								</View>
-							</MapView.Callout>
-						</MapView.Marker>
-					)}
-				</MapView>
-				<View style={styles.popup}>
-					<Text style={styles.tytle}>Is this location correct?</Text>
-					<View style={styles.location}>
-						<TextInput
-							value={this.state.location}
-							style={styles.locationText}
-							underlineColorAndroid="transparent"
-							multiline
-							onChangeText={text => this.setState({ location: text })}
+			<KeyboardAvoidingView
+				keyboardVerticalOffset={-deviceHeight * 0.205289}
+				contentContainerStyle={{ flex: 1 }}
+				style={{ flex: 1 }}
+				behavior="position"
+				enabled>
+				<View style={styles.container}>
+					<MapView
+						style={styles.map}
+						provider="google"
+						customMapStyle={mapStyle}
+						minZoomLevel={17}
+						calloutOffset={{ x: -8, y: 28 }}
+						calloutAnchor={{ x: 4, y: 5 }}
+						region={this.state.region}
+						onLayout={this.onMapLayout}>
+						{this.state.isMapReady && (
+							<MapView.Marker
+								ref={component => (this._userOnMap = component)}
+								onPress={this.toggle}
+								image={require('../assets/user_on_map.png')}
+								coordinate={{
+									latitude: this.state.region.latitude,
+									longitude: this.state.region.longitude
+								}}>
+								<MapView.Callout tooltip={true}>
+									<View style={styles.calloutCont}>
+										<Text style={styles.calloutText}>You are here</Text>
+										<Image
+											source={require('../assets/callout.png')}
+											style={styles.calloutImage}
+										/>
+									</View>
+								</MapView.Callout>
+							</MapView.Marker>
+						)}
+					</MapView>
+					<View style={styles.popup}>
+						<Text style={styles.tytle}>Is this location correct?</Text>
+						<View style={styles.location}>
+							<TextInput
+								value={this.state.location}
+								style={styles.locationText}
+								underlineColorAndroid="transparent"
+								multiline
+								onChangeText={text => this.setState({ location: text })}
+							/>
+						</View>
+						<SubmitButton
+							title="ADD MY CHARGING LOCATION"
+							position={styles.button}
+							onPress={this.handleChange}
 						/>
 					</View>
-					<SubmitButton
-						title="ADD MY CHARGING LOCATION"
-						position={styles.button}
-						onPress={this.handleChange}
-					/>
 				</View>
-			</View>
+			</KeyboardAvoidingView>
 		);
 	}
 }

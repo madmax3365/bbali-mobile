@@ -3,6 +3,10 @@ package com.bbali;
 import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.zyu.ReactNativeWheelPickerPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import org.reactnative.camera.RNCameraPackage;
+import com.zyu.ReactNativeWheelPickerPackage;
 import org.reactnative.camera.RNCameraPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactNativeHost;
@@ -24,12 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new ReactNativeWheelPickerPackage(),
-            new RNCameraPackage(),
-            new SplashScreenReactPackage(),
-             new MapsPackage()
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new ReactNativeWheelPickerPackage(), new MapsPackage(),
+          new RNCameraPackage(), new ReactNativeWheelPickerPackage()
 
       );
     }

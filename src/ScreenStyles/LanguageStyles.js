@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 		left: deviceWidth * 0.25417,
 		color: '#fff',
 		fontSize: 18,
-		fontFamily: 'Poppins'
+		fontFamily: 'Poppins-Regular'
 	},
 	korea: {
 		height: deviceHeight * 0.097,

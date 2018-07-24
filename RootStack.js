@@ -123,6 +123,7 @@ const InitialLaunch = createStackNavigator(
 		transitionConfig
 	}
 );
+
 const SecondLaunches = createStackNavigator(
 	{
 		Login: {
@@ -172,6 +173,12 @@ const SecondLaunches = createStackNavigator(
 			navigationOptions: {
 				header: null
 			}
+		},
+		Welcome: {
+			screen: Welcome,
+			navigationOptions: {
+				header: null
+			}
 		}
 	},
 	{
@@ -182,7 +189,11 @@ const SecondLaunches = createStackNavigator(
 
 class RootStack extends Component {
 	render() {
-		return true ? <InitialLaunch /> : <SecondLaunches />;
+		return this.props.auth.InitialLaunch ? (
+			<InitialLaunch />
+		) : (
+			<SecondLaunches />
+		);
 	}
 }
 RootStack.propTypes = {

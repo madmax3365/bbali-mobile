@@ -149,6 +149,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-wheel-datepicker')
+    compile project(':react-native-splash-screen')
+    compile project(':react-native-maps')
+    compile project(':react-native-camera')
     implementation project(':react-native-wheel-datepicker')
     implementation project(':react-native-camera')
     implementation project(':react-native-splash-screen')

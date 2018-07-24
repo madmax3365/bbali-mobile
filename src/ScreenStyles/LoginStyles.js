@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
 		top: deviceHeight * 0.339366,
 		width: deviceWidth * 0.8656,
 		height: deviceHeight * 0.557,
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
+		alignSelf: 'center'
 	},
 	bg: {
 		position: 'absolute',
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
 	},
 	email: {
 		position: 'absolute',
-		top: deviceHeight * 0.07149,
+		top: deviceHeight * 0.05149,
 		left: deviceWidth * 0.080645,
 		width: deviceWidth * 0.66867,
 		borderBottomWidth: 1,

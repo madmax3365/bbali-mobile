@@ -9,52 +9,59 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignSelf: 'center',
 		alignItems: 'center',
-		marginTop: deviceHeight * 0.043,
-		marginBottom: deviceHeight * 0.4,
+		position: 'absolute',
+		top: deviceHeight * 0.23,
+
 		backgroundColor: '#fff'
 	},
-	emptyCont: {
-		position: 'absolute',
-		top: deviceHeight * 0.303,
-		flex: 1,
-		alignItems: 'center'
-	},
-	oops: {
-		fontSize: 16,
-		color: '#212121',
-		fontFamily: 'Poppins'
-	},
-	desc: {
-		color: '#212121',
-		fontFamily: 'Poppins'
-	},
-	text: {
-		position: 'absolute',
-		bottom: deviceHeight * 0.116
-	},
+
 	amount: {
 		flex: 1,
 		flexDirection: 'row',
 		position: 'absolute',
 		alignItems: 'center',
-		bottom: deviceHeight * 0.03755
+		top: deviceHeight * 0.03755
 	},
 	money: {
-		fontSize: 26,
+		fontSize: deviceHeight * 0.069,
 		color: '#252d5c',
 		fontFamily: 'Poppins - Semi Bold',
 		fontWeight: 'bold'
 	},
-	image: {
-		position: 'absolute',
-		top: deviceHeight * 0.044,
-		width: deviceWidth * 0.40257,
-		height: deviceHeight * 0.17527174,
-		flex: 1
-	},
 	dollar: {
 		width: deviceWidth * 0.109,
 		height: deviceWidth * 0.109
+	},
+	send: {
+		position: 'absolute',
+		width: deviceWidth * 0.793,
+		bottom: deviceHeight * 0.123
+	},
+	convert: {
+		position: 'absolute',
+		width: deviceWidth * 0.793,
+		bottom: deviceHeight * 0.039289,
+		backgroundColor: '#252d5c'
+	},
+	available: {
+		width: '100%',
+		flex: 1,
+		flexDirection: 'row',
+		position: 'absolute',
+		top: deviceHeight * 0.16259,
+		justifyContent: 'space-around'
+	},
+	desc: {
+		position: 'absolute',
+		left: deviceWidth * 0.041,
+		fontSize: deviceHeight * 0.01811,
+		color: '#252d5c'
+	},
+	availableMoney: {
+		position: 'absolute',
+		right: deviceWidth * 0.041,
+		fontSize: deviceHeight * 0.02717,
+		color: '#13db97'
 	}
 });
 export default styles;

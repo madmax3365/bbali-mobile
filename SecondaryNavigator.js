@@ -12,11 +12,6 @@ import Share from './src/screens/Share';
 import Mechanic from './src/screens/Mechanic';
 import Credits from './src/screens/Credits';
 import Admin from './src/screens/Admin';
-
-// Headers
-import Header from './src/Components/Header';
-import ScreenHeader from './src/Components/ScreenHeader';
-import SecondaryHeader from './src/Components/SecondaryHeader';
 import AddVehicle from './src/screens/AddVehicle';
 import Adress from './src/screens/Adress';
 import UserSettings from './src/screens/UserSettings';
@@ -27,6 +22,16 @@ import Feedback from './src/screens/Feedback';
 import AddPayment from './src/screens/AddPayment';
 import Booking from './src/screens/Booking';
 import AddCC from './src/screens/AddCC';
+import SendCredit from './src/screens/SendCredit';
+import Bitcoin from './src/screens/Bitcoin';
+import ConvertDollar from './src/screens/ConvertDollar';
+
+// Headers
+import Header from './src/Components/Header';
+import ScreenHeader from './src/Components/ScreenHeader';
+import SecondaryHeader from './src/Components/SecondaryHeader';
+import BitcoinHeader from './src/Components/BitcoinHeader';
+import SendBitcoin from './src/screens/SendBitcoin';
 
 const transitionConfig = () => {
 	return {
@@ -221,7 +226,7 @@ export const ShareScreen = createStackNavigator({
 		screen: Share,
 		navigationOptions: ({ navigation }) => ({
 			disableBack: true,
-			header: <ScreenHeader title="Share a free ride" navigation={navigation} />
+			header: <ScreenHeader title="Promo Code" navigation={navigation} />
 		})
 	}
 });
@@ -235,11 +240,54 @@ export const MechanicScreen = createStackNavigator({
 	}
 });
 export const CreditsScreen = createStackNavigator({
-	History: {
+	Credits: {
 		screen: Credits,
 		navigationOptions: ({ navigation }) => ({
 			disableBack: true,
-			header: <ScreenHeader title="My credits" navigation={navigation} />
+			header: <ScreenHeader title="My Credits" navigation={navigation} />
+		})
+	},
+	SendCredits: {
+		screen: SendCredit,
+		navigationOptions: ({ navigation }) => ({
+			disableBack: true,
+			header: (
+				<SecondaryHeader title="Send From Credit" navigation={navigation} />
+			)
+		})
+	},
+	Convert: {
+		screen: ConvertDollar,
+		navigationOptions: ({ navigation }) => ({
+			disableBack: true,
+			header: <SecondaryHeader title="Convert" navigation={navigation} />
 		})
 	}
 });
+
+export const BitcoinScreen = createStackNavigator(
+	{
+		Bitcoin: {
+			screen: Bitcoin,
+			navigationOptions: ({ navigation }) => ({
+				disableBack: true,
+				header: <BitcoinHeader title="Bitcoin Wallet" navigation={navigation} />
+			})
+		},
+		Convert: {
+			screen: ConvertDollar,
+			navigationOptions: ({ navigation }) => ({
+				disableBack: true,
+				header: <SecondaryHeader title="Convert" navigation={navigation} />
+			})
+		},
+		SendBitcoin: {
+			screen: SendBitcoin,
+			navigationOptions: ({ navigation }) => ({
+				disableBack: true,
+				header: <SecondaryHeader title="Send BTC" navigation={navigation} />
+			})
+		}
+	},
+	{ transitionConfig, initialRouteName: 'Bitcoin' }
+);

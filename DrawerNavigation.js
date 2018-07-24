@@ -10,7 +10,9 @@ import {
 	MechanicScreen,
 	CreditsScreen,
 	FeedbackScreen,
-	UserSettingsScreen
+	UserSettingsScreen,
+	RateScreen,
+	BitcoinScreen
 } from './SecondaryNavigator';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -38,11 +40,15 @@ const DrawerNavigation = createDrawerNavigator(
 		Credits: {
 			screen: CreditsScreen
 		},
+
 		Feedback: {
 			screen: FeedbackScreen
 		},
 		UserSettings: {
 			screen: UserSettingsScreen
+		},
+		Bitcoin: {
+			screen: BitcoinScreen
 		}
 	},
 	{

@@ -49,7 +49,12 @@ export default class QR extends Component {
 				{this.state.error !== '' && <Toast message={this.state.error} />}
 				<Text style={styles.title}>Scan QR code</Text>
 				<View style={styles.container}>
-					<QRCodeScanner onRead={this.onSuccess} />
+					<View style={styles.camWrap}>
+						<QRCodeScanner
+							onRead={this.onSuccess}
+							cameraStyle={styles.scanner}
+						/>
+					</View>
 					<View style={styles.cont}>
 						<Text style={styles.text}>{this.state.code}</Text>
 					</View>

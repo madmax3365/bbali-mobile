@@ -82,16 +82,10 @@ export default class Welcome extends Component {
 					onSnapToItem={index => this.setState({ activeSlide: index })}
 				/>
 				{this.pagination}
-				<TouchableOpacity style={styles.nextButton} onPress={this.doRoute}>
-					<Image
-						source={require('../assets/welcome/next.png')}
-						style={styles.next}
-					/>
-				</TouchableOpacity>
 				<TouchableOpacity
 					style={styles.skipButton}
 					onPress={() => this.props.navigation.navigate('Home')}>
-					<Text style={styles.skip}>Skip</Text>
+					<Text style={styles.skip}>X</Text>
 				</TouchableOpacity>
 			</ImageBackground>
 		);

@@ -55,6 +55,17 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		color: '#000',
 		fontWeight: 'bold'
+	},
+	scanner: {
+		width: deviceWidth * 0.5169,
+		height: deviceHeight * 0.29
+	},
+	camWrap: {
+		width: deviceWidth * 0.5169,
+		height: deviceHeight * 0.29,
+		position: 'absolute',
+		top: deviceHeight * 0.05,
+		flex: 1
 	}
 });
 export default styles;

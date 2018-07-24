@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 	},
 	calendar: {
 		backgroundColor: '#fff',
-		width: deviceWidth * 0.0617,
+		width: deviceWidth * 0.0717,
 		marginLeft: deviceWidth * 0.041,
 		height: deviceHeight * 0.328
 	},

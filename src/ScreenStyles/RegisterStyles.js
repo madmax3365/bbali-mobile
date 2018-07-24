@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		alignContent: 'center',
 		position: 'absolute',
-		top: deviceHeight * 0.103,
+		top: deviceHeight * 0.24,
 		width: deviceWidth * 0.8656,
-		height: deviceHeight * 0.793,
-		backgroundColor: '#fff'
+		height: deviceHeight * 0.517,
+		backgroundColor: '#fff',
+		alignSelf: 'center'
 	},
 	bg: {
 		position: 'absolute',
@@ -40,94 +41,42 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'stretch'
 	},
+	toggler: {
+		position: 'absolute',
+		top: deviceHeight * 0.1509,
+		left: deviceWidth * 0.080645
+	},
+	togglerText: {
+		textDecorationLine: 'underline',
+		color: '#252d5c'
+	},
 	img: {
 		flex: 1,
 		height: deviceHeight * 0.164
 	},
 	login: {
 		position: 'absolute',
-		bottom: deviceHeight * 0.225
+		bottom: deviceHeight * 0.209
 	},
-	nameTitle: {
+	inputTitle: {
 		position: 'absolute',
 		top: deviceHeight * 0.05055,
 		left: deviceWidth * 0.080645,
 		color: '#1b1b1b',
 		fontFamily: 'Poppins - Semi Bold'
 	},
-	name: {
+	input: {
 		position: 'absolute',
-		top: deviceHeight * 0.07149,
+		top: deviceHeight * 0.04649,
 		left: deviceWidth * 0.080645,
+		textAlignVertical: 'bottom',
 		width: deviceWidth * 0.66867,
+
 		borderBottomWidth: 1,
 		paddingBottom: 0,
 		borderBottomColor: '#e5e5e5'
 	},
-	emailTitle: {
-		position: 'absolute',
-		top: deviceHeight * 0.13331,
-		left: deviceWidth * 0.080645,
-		color: '#1b1b1b',
-		fontFamily: 'Poppins - Semi Bold'
-	},
-	email: {
-		position: 'absolute',
-		top: deviceHeight * 0.1567,
-		left: deviceWidth * 0.080645,
-		width: deviceWidth * 0.66867,
-		borderBottomWidth: 1,
-		paddingBottom: 0,
-		borderBottomColor: '#e5e5e5'
-	},
-	phoneNumberTitle: {
-		position: 'absolute',
-		top: deviceHeight * 0.221,
-		left: deviceWidth * 0.080645,
-		color: '#1b1b1b',
-		fontFamily: 'Poppins - Semi Bold'
-	},
-	phoneNumber: {
-		position: 'absolute',
-		top: deviceHeight * 0.24,
-		left: deviceWidth * 0.080645,
-		width: deviceWidth * 0.66867,
-		borderBottomWidth: 1,
-		paddingBottom: 0,
-		borderBottomColor: '#e5e5e5'
-	},
-	passwordTitle: {
-		position: 'absolute',
-		top: deviceHeight * 0.307,
-		left: deviceWidth * 0.080645,
-		color: '#1b1b1b',
-		fontFamily: 'Poppins - Semi Bold'
-	},
-	password: {
-		width: deviceWidth * 0.66867,
-		position: 'absolute',
-		top: deviceHeight * 0.32,
-		left: deviceWidth * 0.080645,
-		borderBottomWidth: 1,
-		paddingBottom: 0,
-		borderBottomColor: '#e5e5e5'
-	},
-	password2Title: {
-		position: 'absolute',
-		bottom: deviceHeight * 0.38496,
-		left: deviceWidth * 0.080645,
-		color: '#1b1b1b',
-		fontFamily: 'Poppins - Semi Bold'
-	},
-	password2: {
-		width: deviceWidth * 0.66867,
-		position: 'absolute',
-		bottom: deviceHeight * 0.34,
-		left: deviceWidth * 0.080645,
-		borderBottomWidth: 1,
-		paddingBottom: 0,
-		borderBottomColor: '#e5e5e5'
-	},
+
 	forgot: {
 		position: 'absolute',
 		bottom: deviceHeight * 0.19,
@@ -145,7 +94,7 @@ const styles = StyleSheet.create({
 	},
 	register: {
 		position: 'absolute',
-		bottom: deviceHeight * 0.19,
+		bottom: deviceHeight * 0.17,
 		flex: 1,
 		flexDirection: 'row',
 		left: deviceWidth * 0.080645
@@ -157,23 +106,6 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'underline',
 		color: '#252d5c',
 		fontFamily: 'Poppins - Semi Bold'
-	},
-	agreement: {
-		position: 'absolute',
-		bottom: deviceHeight * 0.30978,
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	agreementText: {
-		color: '#252d5c',
-		fontFamily: 'Poppins'
-	},
-	check: {
-		width: deviceHeight * 0.02,
-		height: deviceHeight * 0.02,
-		marginRight: deviceHeight * 0.02
 	}
 });
 export default styles;

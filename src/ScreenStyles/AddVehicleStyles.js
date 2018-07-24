@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		alignItems: 'center',
 		width: deviceWidth * 0.8735,
-		height: deviceHeight * 0.58378,
+		height: deviceHeight * 0.45378,
 		backgroundColor: '#fff',
 		marginTop: deviceHeight * 0.0439,
 		marginBottom: deviceHeight * 0.2536
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
 		top: deviceHeight * 0.325
 	},
 	button: {
-		marginTop: deviceHeight * 0.473,
-		marginBottom: deviceHeight * 0.044
+		position: 'absolute',
+		bottom: deviceHeight * 0.09
 	},
 	nameField: {
 		flex: 1,

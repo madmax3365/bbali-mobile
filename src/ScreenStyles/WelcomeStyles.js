@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 	dotsContainer: {
 		backgroundColor: 'transparent',
 		position: 'absolute',
-		bottom: deviceHeight * 0.2
+		bottom: 0
 	},
 	slider: {
 		width: deviceWidth,
@@ -39,27 +39,21 @@ const styles = StyleSheet.create({
 		height: deviceHeight * 0.0167,
 		borderRadius: 5
 	},
-	nextButton: {
-		position: 'absolute',
-		flex: 1,
-		bottom: deviceHeight * 0.11978,
-		alignSelf: 'center'
-	},
-	next: {
-		width: deviceWidth * 0.5067,
-		height: deviceHeight * 0.079,
-		alignSelf: 'center'
-	},
 	skipButton: {
 		position: 'absolute',
 		flex: 1,
+		alignItems: 'flex-end',
+		justifyContent: 'flex-start',
 		bottom: deviceHeight * 0.0568,
-		alignSelf: 'center',
-		width: deviceWidth * 0.5067
+		top: deviceHeight * 0.03,
+		right: deviceWidth * 0.05,
+		width: deviceWidth * 0.5067,
+		height: deviceHeight * 0.2
 	},
 	skip: {
 		color: '#fff',
-		fontSize: deviceHeight * 0.02266,
+		fontSize: deviceHeight * 0.03266,
+		fontWeight: '100',
 		fontFamily: 'Arial Rounded MT Bold',
 		textAlign: 'center'
 	}
